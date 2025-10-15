@@ -5,6 +5,7 @@ class Imagen
     const RUTA_IMAGENES_PORTFOLIO = '/public/images/index/portfolio/';
     const RUTA_IMAGENES_GALERIA = '/public/images/index/gallery/';
     const RUTA_IMAGENES_CLIENTES = '/public/images/clients/';
+    const RUTA_IMAGENES_SUBIDAS = '/public/images/subidas/';
 
     /**
      * @var int
@@ -183,10 +184,14 @@ class Imagen
         return self::RUTA_IMAGENES_GALERIA . $this->getNombre();
     }
 
-
     public function getUrlClientes(): string
     {
         return self::RUTA_IMAGENES_CLIENTES . $this->getNombre();
+    }
+
+    public function getUrlSubidas(): string
+    {
+        return self::RUTA_IMAGENES_SUBIDAS . $this->nombre;
     }
 
     public function toArray(): array

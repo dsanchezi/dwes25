@@ -9,7 +9,7 @@
                         <div class="head text-center">
                             <ul class="list-inline">
                                 <li>
-                                    <a class="gallery" href="images/index/gallery/<?= $imagen->getUrlGaleria() ?>" data-toggle="tooltip" data-original-title="Quick View">
+                                    <a class="gallery" href="<?= $imagen->getUrlGaleria() ?>" data-toggle="tooltip" data-original-title="Quick View">
                                         <i class="fa fa-eye"></i>
                                     </a>
                                 </li>

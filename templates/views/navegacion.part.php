@@ -27,6 +27,20 @@ require_once __DIR__ . '/../../src/utils/utils.class.php';
               <a href="index.php"><i class="fa fa-home sr-icons"></i> Home</a></li>
                            
               <?php   
+                if (Utils::esOpcionMenuActiva('/galeria.php')==true )
+                  echo '<li class="active lien">'; 
+                    else echo '<li class="lien">';
+              ?>            
+              <a href="galeria.php"><i class="fa fa-bookmark sr-icons"></i> Galeria</a></li>
+              
+              <?php   
+                if (Utils::esOpcionMenuActiva('/asociados.php')==true )
+                  echo '<li class="active lien">'; 
+                    else echo '<li class="lien">';
+              ?>            
+              <a href="asociados.php"><i class="fa fa-bookmark sr-icons"></i> Asociados</a></li>
+              
+              <?php   
                 if (Utils::esOpcionMenuActiva('/about.php')==true )
                   echo '<li class="active lien">'; 
                     else echo '<li class="lien">';
