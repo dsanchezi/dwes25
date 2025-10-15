@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $errores[] = "¡Ha introducido un código de seguridad incorrecto! Inténtelo de nuevo";
                 } else { // Todo correcto y se guardan los datos
                     $tiposAceptados = ['image/jpeg', 'image/gif', 'image/png'];
-                    $logo = new File('logo', $tiposAceptados); // El nombre 'imagen' es el que se ha puesto en el formulario de galeria.view.php
+                    $logo = new File('logo', $tiposAceptados); // El nombre 'logo' es el que se ha puesto en el formulario de asociados.view.php
 
                     $logo->saveUploadFile(Asociado::RUTA_IMAGENES_ASOCIADO);
 
