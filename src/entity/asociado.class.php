@@ -1,6 +1,7 @@
 <?php
+require_once 'IEntity.php';
 
-class Asociado
+class Asociado implements IEntity
 {
     const RUTA_IMAGENES_ASOCIADO = '/public/images/asociados/';
 

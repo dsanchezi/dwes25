@@ -1,10 +1,22 @@
 <?php
 require_once '../src/utils/file.class.php';
 require_once '../src/entity/asociado.class.php';
+require_once '../src/database/Connection.class.php';
+require_once '../src/repository/AsociadosRepository.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    session_start();
-    try {
+$errores = [];
+$nombre = "";
+$descripcion = "";
+$mensaje = "";
+
+try {
+    $config = require_once __DIR__ . '/../app/config.php';
+    App::bind('config', $config); // Guardamos la configuración en el contenedor de servicios
+
+    $asociadoRepository = new AsociadosRepository();
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        session_start();
         $nombre = trim(htmlspecialchars($_POST['nombre'] ?? ""));
         $descripcion = trim(htmlspecialchars($_POST['descripcion'] ?? ""));
 
@@ -23,21 +35,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     $logo->saveUploadFile(Asociado::RUTA_IMAGENES_ASOCIADO);
 
-                    $mensaje = 'Datos enviados';
+                    $asociado = new Asociado($nombre, $logo->getFileName(), $descripcion);
+                    $asociadoRepository->save($asociado);
+
+                    $descripcion = "";
+                    $mensaje = "Se ha guardado el asociado correctamente";
                 }
-            } else {
-                $mensaje = "";
-                $errores[] = "Introduzca el código de seguridad";
             }
         }
-    } catch (FileException $fileException) {
-        $errores[] = $fileException->getMessage();
     }
-} else {
-    $errores = [];
-    $nombre = "";
-    $descripcion = "";
-    $mensaje = "";
+} catch (FileException $fileException) {
+    $errores[] = $fileException->getMessage();
 }
 
 require_once "views/asociados.view.php";

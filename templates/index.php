@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__ . '/../src/entity/imagen.class.php';
-require_once __DIR__ . '/../src/entity/asociado.class.php';
+require_once __DIR__ . '/../src/entity/Imagen.class.php';
+require_once __DIR__ . '/../src/entity/Asociado.class.php';
 
 $imagenesHome[]= new Imagen ('1.jpg','descripción imagen 1',1,456,610,140);
 $imagenesHome[]= new Imagen ('2.jpg','descripción imagen 2',1,56,650,136);

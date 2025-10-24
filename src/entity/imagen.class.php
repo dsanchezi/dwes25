@@ -1,6 +1,7 @@
 <?php
+require_once 'IEntity.php';
 
-class Imagen
+class Imagen implements IEntity
 {
     const RUTA_IMAGENES_PORTFOLIO = '/public/images/index/portfolio/';
     const RUTA_IMAGENES_GALERIA = '/public/images/index/gallery/';
@@ -47,7 +48,7 @@ class Imagen
      * @param int $numLikes
      * @param int $numDownloads
      */
-    public function __construct(string $nombre = "", string $descripcion = "", int $categoria = 0, int $numVisualizaciones = 0, int $numLikes = 0, int $numDownloads = 0)
+    public function __construct(string $nombre = "", string $descripcion = "", int $categoria = 1, int $numVisualizaciones = 0, int $numLikes = 0, int $numDownloads = 0)
     {
         $this->id = null;
         $this->nombre = $nombre;
